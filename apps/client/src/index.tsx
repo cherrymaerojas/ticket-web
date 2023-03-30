@@ -4,6 +4,7 @@ import { render } from 'solid-js/web'
 
 import App from './App'
 import './index.css'
+import theme from './theme'
 
 const root = document.getElementById('root')
 
@@ -13,6 +14,6 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
     )
 }
 
-render(() => <HopeProvider>
+render(() => <HopeProvider config={theme}>
     <App />
 </HopeProvider>, root!)
