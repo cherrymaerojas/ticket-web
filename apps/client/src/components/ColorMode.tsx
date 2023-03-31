@@ -6,7 +6,7 @@ import type { Component } from 'solid-js'
 const ColorMode: Component = () => {
     const { colorMode, toggleColorMode } = useColorMode()
 
-    return <HStack>
+    return <HStack padding="1rem">
         <IconButton variant="ghost" aria-label="Search" onclick={toggleColorMode} icon={colorMode() === 'light' ? <BsSunFill /> : <FaRegularMoon />} />
     </HStack>
 }
