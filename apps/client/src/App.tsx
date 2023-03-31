@@ -7,8 +7,8 @@ const App: Component = () => (
         <GridItem area="nav">
             <NavBar />
         </GridItem>
-        <GridItem area="aside" bg="tomato">Aside</GridItem>
-        <GridItem area="main" bg="papayawhip">Main</GridItem>
+        <GridItem area="aside">Aside</GridItem>
+        <GridItem area="main">Main</GridItem>
     </Grid>
 )
 
