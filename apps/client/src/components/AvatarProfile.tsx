@@ -1,30 +1,42 @@
-import { Avatar, Divider, HStack, Icon, Popover, PopoverArrow, PopoverBody, PopoverContent, PopoverTrigger, Text } from "@hope-ui/solid"
-import { FaSolidGear } from 'solid-icons/fa'
-import { TbPower } from 'solid-icons/tb'
-import type { Component } from 'solid-js'
+import { Avatar, Flex, HStack, Icon, Menu, MenuContent, MenuGroup, MenuItem, MenuLabel, MenuTrigger } from "@hope-ui/solid"
+import { FaSolidGear, FaSolidPowerOff } from 'solid-icons/fa'
 
-const AvatarProfile: Component = () => (
-    <HStack padding="1rem">
-        <Popover>
-            <PopoverTrigger as={Avatar} variant="ghost" colorScheme="neutral" />
-            <PopoverContent width="10%">
-                <PopoverArrow />
-                <PopoverBody cursor="pointer">
-                    <HStack justifyContent="center">
-                        <Icon as={FaSolidGear} marginRight=".5rem" />
-                        <Text>Settings</Text>
-                    </HStack>
-                </PopoverBody>
-                <Divider />
-                <PopoverBody cursor="pointer">
-                    <HStack justifyContent="center">
-                        <Icon as={TbPower} marginRight=".5rem" />
-                        <Text>Logout</Text>
-                    </HStack>
-                </PopoverBody>
-            </PopoverContent>
-        </Popover>
-    </HStack>
-)
-
-export default AvatarProfile
+export default function AvatarProfile() {
+    return (
+        <HStack spacing="$6">
+            <Flex alignItems={'center'}>
+                <Menu>
+                    <MenuTrigger bg="none">
+                        <HStack>
+                            <Avatar
+                                size='md'
+                                cursor="pointer"
+                            />
+                        </HStack>
+                    </MenuTrigger>
+                    <MenuContent>
+                        <MenuGroup>
+                            <MenuLabel>Profile</MenuLabel>
+                            <MenuItem>
+                                <Icon
+                                    mr="$4"
+                                    fontSize="$lg"
+                                    as={FaSolidGear}
+                                />
+                                Settings
+                            </MenuItem>
+                            <MenuItem>
+                                <Icon
+                                    mr="$4"
+                                    fontSize="$lg"
+                                    as={FaSolidPowerOff}
+                                />
+                                Logout
+                            </MenuItem>
+                        </MenuGroup>
+                    </MenuContent>
+                </Menu>
+            </Flex>
+        </HStack>
+    )
+}

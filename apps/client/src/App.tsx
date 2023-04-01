@@ -1,15 +1,15 @@
-import { Grid, GridItem } from "@hope-ui/solid"
-import type { Component } from 'solid-js'
-import NavBar from "./components/Navbar"
+import {
+    Box
+} from '@hope-ui/solid'
 
-const App: Component = () => (
-    <Grid templateAreas={`"nav nav" "aside main"`}>
-        <GridItem area="nav">
-            <NavBar />
-        </GridItem>
-        <GridItem area="aside">Aside</GridItem>
-        <GridItem area="main">Main</GridItem>
-    </Grid>
-)
+import HeaderNav from './pages/HeaderNav'
+import Sidebar from './pages/Sidebar'
 
-export default App
+export default function App() {
+    return (
+        <Box minH="$screenH">
+            <Sidebar />
+            <HeaderNav />
+        </Box>
+    )
+}

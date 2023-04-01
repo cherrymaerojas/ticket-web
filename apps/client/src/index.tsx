@@ -1,4 +1,3 @@
-/* @refresh reload */
 import { HopeProvider } from '@hope-ui/solid'
 import { render } from 'solid-js/web'
 
