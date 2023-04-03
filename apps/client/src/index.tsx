@@ -1,6 +1,7 @@
 import { HopeProvider } from '@hope-ui/solid'
 import { render } from 'solid-js/web'
 
+import { Router } from '@solidjs/router'
 import App from './App'
 import './index.css'
 import theme from './theme'
@@ -13,6 +14,8 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
     )
 }
 
-render(() => <HopeProvider config={theme}>
-    <App />
-</HopeProvider>, root!)
+render(() => <Router>
+    <HopeProvider config={theme}>
+        <App />
+    </HopeProvider>
+</Router>, root!)

@@ -1,15 +1,15 @@
-import {
-    Box
-} from '@hope-ui/solid'
+import { Box } from '@hope-ui/solid'
+import { lazy } from 'solid-js'
 
-import HeaderNav from './pages/HeaderNav'
-import Sidebar from './pages/Sidebar'
+// Lazy components
+const Dashboard = lazy(() => import('./pages/Dashboard'))
+
+function Test() {
+    return <Box ml="$60" p="$4">
+        Text
+    </Box>
+}
 
 export default function App() {
-    return (
-        <Box minH="$screenH">
-            <Sidebar />
-            <HeaderNav />
-        </Box>
-    )
+    return <Dashboard />
 }

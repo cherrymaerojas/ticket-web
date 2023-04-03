@@ -1,10 +1,13 @@
-import { Avatar, Flex, HStack, Icon, Menu, MenuContent, MenuGroup, MenuItem, MenuLabel, MenuTrigger } from "@hope-ui/solid"
+import { Avatar, Flex, HStack, Icon, Menu, MenuContent, MenuGroup, MenuItem, MenuLabel, MenuTrigger, createDisclosure } from "@hope-ui/solid"
 import { FaSolidGear, FaSolidPowerOff } from 'solid-icons/fa'
+import ChangePassword from "./ChangePassword"
 
 export default function AvatarProfile() {
+    const { isOpen, onOpen, onClose } = createDisclosure()
     return (
         <HStack spacing="$6">
             <Flex alignItems={'center'}>
+                <ChangePassword onClose={onClose} isOpen={isOpen} />
                 <Menu>
                     <MenuTrigger bg="none">
                         <HStack>
@@ -17,7 +20,7 @@ export default function AvatarProfile() {
                     <MenuContent>
                         <MenuGroup>
                             <MenuLabel>Profile</MenuLabel>
-                            <MenuItem>
+                            <MenuItem onSelect={onOpen}>
                                 <Icon
                                     mr="$4"
                                     fontSize="$lg"
