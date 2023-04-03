@@ -4,10 +4,16 @@ import {
     Menu,
     MenuContent,
     MenuItem,
-    MenuTrigger
+    MenuTrigger,
+    css
 } from '@hope-ui/solid'
+import { A } from '@solidjs/router'
 import { FaRegularNoteSticky } from 'solid-icons/fa'
 import { HiOutlineDocumentReport } from 'solid-icons/hi'
+
+const activeClass = css({
+    backgroundColor: "gainsboro"
+})
 
 export default function ReportEvents() {
     return <Menu placement='right-end'>
@@ -28,7 +34,7 @@ export default function ReportEvents() {
             </Flex>
         </MenuTrigger>
         <MenuContent>
-            <MenuItem>
+            <MenuItem as={A} href='/reports/skybox' activeClass=''>
                 <Icon
                     mr="$4"
                     fontSize="$lg"
@@ -36,7 +42,7 @@ export default function ReportEvents() {
                 />
                 Skybox
             </MenuItem>
-            <MenuItem>
+            <MenuItem as={A} href='/reports/events'>
                 <Icon
                     mr="$4"
                     fontSize="$lg"
@@ -44,7 +50,7 @@ export default function ReportEvents() {
                 />
                 Events
             </MenuItem>
-            <MenuItem>
+            <MenuItem as={A} href='/reports/missing-pricing'>
                 <Icon
                     mr="$4"
                     fontSize="$lg"

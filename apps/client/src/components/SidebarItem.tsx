@@ -1,23 +1,31 @@
 import {
     Flex,
     FlexProps,
-    Icon
+    Icon,
+    css
 } from '@hope-ui/solid'
+import { A } from '@solidjs/router'
 import { IconTypes } from 'solid-icons'
 
 interface NavItemProps extends FlexProps {
     icon: IconTypes
+    path: string
     children: string
 }
 
-export default function SidebarItem({ icon, children }: NavItemProps) {
+const activeClass = css({
+    backgroundColor: "gainsboro"
+})
+
+export default function SidebarItem({ path, icon, children }: NavItemProps) {
     return (
-        <a href="#">
+        <A href={path} activeClass={activeClass()}>
             <Flex
                 p="$4"
                 mx="$4"
                 borderRadius="$lg"
                 role="group"
+                bg="inherit"
                 cursor="pointer">
                 {icon && (
                     <Icon
@@ -28,6 +36,6 @@ export default function SidebarItem({ icon, children }: NavItemProps) {
                 )}
                 {children}
             </Flex>
-        </a>
+        </A>
     )
 }
