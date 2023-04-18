@@ -4,16 +4,16 @@ const theme: HopeThemeConfig = {
     initialColorMode: "light",
     lightTheme: {
         colors: {
-            primary1: "#001b94",
-            primary2: "#1330a7",
-            primary3: "#7484db",
-            primary4: "#304dca",
-            primary5: "#e8eaf9",
-            primary6: "#304dca",
-            primary7: "#304dca",
-            primary8: "#5468d3",
-            primary9: "#2a44bf",
-            primary10: "#1f3ab3",
+            primary1: "#f6f7fc",
+            primary2: "#dbe0f3",
+            primary3: "#bcc4e8",
+            primary4: "#96a3db",
+            primary5: "#8191d4",
+            primary6: "#6578cb",
+            primary7: "#4c62c2",
+            primary8: "#304ab9",
+            primary9: "#1e3aaf",
+            primary10: "#162a7f"
         }
     }
 }

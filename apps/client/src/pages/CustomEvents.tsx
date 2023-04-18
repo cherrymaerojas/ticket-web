@@ -1,7 +1,8 @@
 import {
-    Box, HStack, IconButton, Input, Switch, Table, Tbody, Td, Th, Thead, Tr
+    Box, Button, HStack, IconButton, Input, Switch, Table, Tbody, Td, Th, Thead, Tr
 } from '@hope-ui/solid'
 import { TbRefresh } from 'solid-icons/tb'
+import { VsAdd } from 'solid-icons/vs'
 import { For } from 'solid-js'
 
 const tableHeaders: string[] = [
@@ -9,7 +10,6 @@ const tableHeaders: string[] = [
     'Event',
     'Performances',
     'TimeStamp',
-    'Upcoming Performance',
     'Actions'
 ]
 
@@ -21,6 +21,7 @@ export default function CustomEvents() {
                 <HStack spacing="$4">
                     <Switch labelPlacement="end" variant="filled">Show Expired Events</Switch>
                     <IconButton aria-label="Refresh" icon={<TbRefresh />} />
+                    <Button leftIcon={<VsAdd />}>Add Event</Button>
                 </HStack>
             </HStack>
             <Table striped="odd">
