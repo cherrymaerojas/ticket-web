@@ -6,7 +6,7 @@
         "dev": "turbo run dev",
         "watch": "turbo run watch",
         "build": "turbo run build",
-        "start": "node apps/api/dist/main"
+        "start": "npm run --workspace api start:prod"
     },
     "workspaces": [
         "apps/*"

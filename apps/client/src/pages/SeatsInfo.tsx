@@ -13,6 +13,7 @@ import { FiExternalLink } from 'solid-icons/fi'
 import { TbRefresh } from 'solid-icons/tb'
 import { For, createResource, createSignal } from 'solid-js'
 
+import axios from 'axios'
 import BROADWAYSACR from '../assets/providers/BROADWAYSACR.png'
 import HULTCENTER from '../assets/providers/HULTCENTER.png'
 import MPV from '../assets/providers/MPV.png'
@@ -40,6 +41,7 @@ const images: Image = {
     SFSYMPHONY
 }
 
+
 const tableHeaders: string[] = [
     'Venue',
     'Event Link',
@@ -53,11 +55,8 @@ const tableHeaders: string[] = [
 ]
 
 async function fetchEvents() {
-    const resukt = await fetch('/api/events')
-    const thing = await resukt.json()
-    return thing
+    return (await axios.get('api/users', { withCredentials: true })).data
 }
-
 
 export default function SeatsInfo() {
     const [events] = createResource(fetchEvents)
