@@ -1,6 +1,8 @@
 import {
-    Box, HStack,
+    Box, Center, HStack,
+    Icon,
     IconButton,
+    IconProps,
     Image,
     Input,
     Skeleton,
@@ -46,20 +48,29 @@ const tableHeaders: string[] = [
     'Venue',
     'Event Link',
     'Provider',
-    'Capacity',
-    'Upcoming Performance',
+    'Timestamp',
+    'Row Section',
+    'Seat Number',
     'Skybox',
-    'Timestamp(EST)',
     'Availability',
     'Actions'
 ]
 
-async function fetchEvents() {
-    return (await axios.get('api/users', { withCredentials: true })).data
+async function fetchSeats() {
+    return (await axios.get('api/tickets', { withCredentials: true })).data
 }
 
+const CircleIcon = (props: IconProps) => (
+    <Icon viewBox='0 0 200 200' {...props}>
+        <path
+            fill='currentColor'
+            d='M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0'
+        />
+    </Icon>
+)
+
 export default function SeatsInfo() {
-    const [events] = createResource(fetchEvents)
+    const [events] = createResource(fetchSeats)
     const [isChecked, setChecked] = createSignal(false)
 
     return (
@@ -87,19 +98,19 @@ export default function SeatsInfo() {
                             <For each={events()}>
                                 {
                                     (event) => <Tr>
-                                        <Td>{event.venue}</Td>
-                                        <Td><a href={event.url} target="_blank">{event.name}<FiExternalLink /></a></Td>
+                                        <Td>{event.event.performance.venue.name}</Td>
+                                        <Td><a href={event.event.ticket_link} target="_blank">{event.name}<FiExternalLink /></a></Td>
                                         <Td>
                                             <HStack spacing="$1">
-                                                {event.provider.name}
+                                                {event.event.performance.provider.name}
                                             </HStack>
                                         </Td>
-                                        <Td>{event.num_seats}/{event.total_seats}</Td>
-                                        <Td>1</Td>
-                                        <Td>1</Td>
-                                        <Td>2</Td>
-                                        <Td>1</Td>
-                                        <Td>2</Td>
+                                        <Td>{event.event.date}</Td>
+                                        <Td>{event.row}</Td>
+                                        <Td>{event.seat_number}</Td>
+                                        <Td><Center><CircleIcon boxSize="$3" color={`${event.in_skybox ? "green" : "red"}`} /></Center></Td>
+                                        <Td><Center><CircleIcon boxSize="$3" color={`${!event.in_skybox ? "green" : "red"}`} /></Center></Td>
+                                        <Td>ACTIONS</Td>
                                     </Tr>
                                 }
                             </For>

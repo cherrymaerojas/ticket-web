@@ -1,10 +1,10 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm"
 
 export enum EventType {
-    CONCERT = 'concert',
-    THEATER = 'theater',
-    SPORT = 'sport',
-    OTHER = 'other',
+    CONCERT = 'CONCERT',
+    THEATER = 'THEATER',
+    SPORT = 'SPORT',
+    OTHER = 'OTHER',
 }
 
 @Entity()

@@ -19,14 +19,11 @@ export class SeatMap {
     seat_number: string
 
     @Column()
-    quantity: number
-
-    @Column()
     unit_price: number
 
     @Column()
     broadcast: boolean
 
     @Column()
-    skybox_link: string
+    in_skybox: boolean
 }

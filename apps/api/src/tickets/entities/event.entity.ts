@@ -10,9 +10,15 @@ export class Event {
     @OneToMany(() => SeatMap, (seatMap) => seatMap.event)
     seat_maps: SeatMap[]
 
-    @Column({ type: 'timestamptz' }) // Recommended
-    date: Date
+    @Column()
+    date: string
 
     @ManyToOne(() => Performance, (performance) => performance.events)
     performance: Performance
+
+    @Column()
+    skybox_link: String
+
+    @Column()
+    ticket_link: String
 }

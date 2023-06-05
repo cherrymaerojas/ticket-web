@@ -17,6 +17,9 @@ import * as Joi from 'joi'
                 JWT_SECRET: Joi.string().required(),
                 JWT_ACCESS_TOKEN_TTL: Joi.number().required(),
                 JWT_REFRESH_TOKEN_TTL: Joi.number().required(),
+                APPLICATION_TOKEN: Joi.string().required(),
+                API_TOKEN: Joi.string().required(),
+                ACCOUNT: Joi.number().required(),
             })
         })
     ],
