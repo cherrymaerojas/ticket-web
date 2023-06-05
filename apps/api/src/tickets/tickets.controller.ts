@@ -1,8 +1,11 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common'
+import { Auth } from 'src/iam/authentication/decorators/auth.decorator'
+import { AuthType } from 'src/iam/authentication/enums/auth-type.enum'
 import { CreateTicketDto } from './dto/create-ticket.dto'
 import { UpdateTicketDto } from './dto/update-ticket.dto'
 import { TicketsService } from './tickets.service'
 
+@Auth(AuthType.None)
 @Controller('tickets')
 export class TicketsController {
     constructor(private readonly ticketsService: TicketsService) { }

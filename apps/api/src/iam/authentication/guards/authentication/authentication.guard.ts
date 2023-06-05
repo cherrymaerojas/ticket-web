@@ -3,19 +3,19 @@ import { Reflector } from '@nestjs/core'
 import { AUTH_TYPE_KEY } from '../../decorators/auth.decorator'
 import { AuthType } from '../../enums/auth-type.enum'
 import { AccessTokenGuard } from '../access-token/access-token.guard'
-import { SessionGuard } from '../session/session.guard'
 
 @Injectable()
 export class AuthenticationGuard implements CanActivate {
 
-    private static readonly defaultAuthType = AuthType.Session
+    private static readonly defaultAuthType = AuthType.None
     private readonly authTypeGuardMap: Record<AuthType, CanActivate | CanActivate[]> = {
         [AuthType.Bearer]: this.accessTokenGuard,
         [AuthType.None]: { canActivate: () => true },
-        [AuthType.Session]: this.sessionGuard
+        // [AuthType.Session]: this.sessionGuard
     }
 
-    constructor(private readonly reflector: Reflector, private readonly accessTokenGuard: AccessTokenGuard, private readonly sessionGuard: SessionGuard) { }
+    //private readonly sessionGuard: SessionGuard
+    constructor(private readonly reflector: Reflector, private readonly accessTokenGuard: AccessTokenGuard) { }
 
     async canActivate(
         context: ExecutionContext,

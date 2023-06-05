@@ -14,9 +14,9 @@ const useAxios = () => {
 
     createEffect(() => {
         const requestIntercept = axios.interceptors.request.use((config): InternalAxiosRequestConfig => {
-            if (!config.headers['Authorization']) {
-                config.headers['Authorization'] = `Bearer ${auth?.auth.accessToken}`
-            }
+            // if (!config.headers['Authorization']) {
+            //     config.headers['Authorization'] = `Bearer ${auth?.auth.accessToken}`
+            // }
             return config
         }, error => Promise.reject(error)
         )

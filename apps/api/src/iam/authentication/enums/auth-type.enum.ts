@@ -1,5 +1,5 @@
 export enum AuthType {
     Bearer,
-    Session,
+    // Session,
     None
 }

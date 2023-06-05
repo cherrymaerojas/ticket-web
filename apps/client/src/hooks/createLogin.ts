@@ -5,9 +5,7 @@ import axios, { AxiosError, AxiosResponse } from "axios"
 import useAuth from "./useAuth"
 
 function signIn(user: { username: string, password: string }) {
-    return axios.post('api/session-authentication/sign-in', user, {
-        headers: { 'Content-Type': 'application/json' }
-    })
+    return axios.post('api/auth/sign-in', user)
 }
 
 type ErrorResponse = {
