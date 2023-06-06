@@ -1,8 +1,10 @@
-import { HopeProvider } from '@hope-ui/solid'
+import { HopeProvider, NotificationsProvider } from '@hope-ui/solid'
+import { QueryClient, QueryClientProvider } from '@tanstack/solid-query'
 import { render } from 'solid-js/web'
 
 import { Router } from '@solidjs/router'
 import App from './App'
+import { AuthProvider } from './context/AuthProvider'
 import './index.css'
 import theme from './theme'
 
@@ -14,8 +16,19 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
     )
 }
 
-render(() => <Router>
-    <HopeProvider config={theme}>
-        <App />
-    </HopeProvider>
-</Router>, root!)
+const queryClient = new QueryClient()
+
+render(() =>
+    <QueryClientProvider client={queryClient}>
+        <HopeProvider config={theme}>
+            <NotificationsProvider>
+                <Router>
+                    <AuthProvider>
+                        <App />
+                    </AuthProvider>
+                </Router>
+            </NotificationsProvider>
+        </HopeProvider>
+    </QueryClientProvider>, root!)
+
+export { queryClient }

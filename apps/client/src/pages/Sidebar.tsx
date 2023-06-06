@@ -40,7 +40,7 @@ export default function Sidebar() {
         pos="fixed"
         h="$screenH">
         <Logo />
-        <Heading mx="$8">Events</Heading>
+        <Heading mx="$8" mb="$4">Events</Heading>
         <For each={linkItems}>
             {
                 (link) => <SidebarItem path={link.path} icon={link.icon}>

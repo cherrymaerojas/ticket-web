@@ -11,7 +11,8 @@ const tableHeaders: string[] = [
     '# of Events',
     'Time Zone',
     'Country',
-    'State'
+    'State',
+    'City'
 ]
 
 export default function Venues() {
@@ -34,8 +35,10 @@ export default function Venues() {
                         <Td></Td>
                         <Td></Td>
                         <Td></Td>
+                        <Td></Td>
                     </Tr>
                     <Tr>
+                        <Td></Td>
                         <Td></Td>
                         <Td></Td>
                         <Td></Td>

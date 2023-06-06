@@ -7,10 +7,14 @@
         "start": "vite",
         "dev": "vite",
         "build": "vite build",
-        "serve": "vite preview"
+        "serve": "vite preview",
+        "server": "json-server --watch ./dummy_data/db.js --port 3004 --routes routes.json --delay 1000"
     },
     "license": "MIT",
     "devDependencies": {
+        "@types/js-cookie": "^3.0.3",
+        "json-server": "^0.17.3",
+        "solid-devtools": "^0.26.0",
         "typescript": "^4.9.5",
         "vite": "^4.1.1",
         "vite-plugin-solid": "^2.5.0"
@@ -19,11 +23,13 @@
         "@hope-ui/solid": "^0.6.7",
         "@solidjs/router": "^0.8.2",
         "@stitches/core": "^1.2.8",
+        "@tanstack/solid-query": "^4.29.5",
         "@tanstack/table-core": "^8.8.5",
-        "i": "^0.3.7",
-        "npm": "^9.6.3",
+        "axios": "^1.3.6",
+        "js-cookie": "^3.0.5",
         "solid-icons": "^1.0.4",
         "solid-js": "^1.6.10",
-        "solid-transition-group": "^0.0.10"
+        "solid-transition-group": "^0.0.10",
+        "solid-zustand": "^1.5.0"
     }
 }
