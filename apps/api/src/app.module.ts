@@ -1,23 +1,21 @@
-import { Module } from '@nestjs/common'
-import { ScheduleModule } from '@nestjs/schedule'
-import { ServeStaticModule } from '@nestjs/serve-static'
-import { join } from 'path'
-import { DatabaseModule } from './database/database.module'
-import { IamModule } from './iam/iam.module'
-import { TicketsModule } from './tickets/tickets.module'
-import { UsersModule } from './users/users.module'
+import { Module } from '@nestjs/common';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
+import { DatabaseModule } from './database/database.module';
+import { IamModule } from './iam/iam.module';
+import { UsersModule } from './users/users.module';
+import { CrawlersModule } from './crawlers/crawlers.module';
 @Module({
-    imports: [
-        ServeStaticModule.forRoot({
-            rootPath: join(__dirname, '../..', 'client', 'dist'),
-        }),
-        ScheduleModule.forRoot(),
-        DatabaseModule,
-        UsersModule,
-        IamModule,
-        TicketsModule,
-    ],
-    controllers: [],
-    providers: [],
+  imports: [
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '../..', 'client', 'dist'),
+    }),
+    DatabaseModule,
+    UsersModule,
+    IamModule,
+    CrawlersModule,
+  ],
+  controllers: [],
+  providers: [],
 })
-export class AppModule { }
+export class AppModule {}
