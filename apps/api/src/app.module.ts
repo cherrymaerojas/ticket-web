@@ -5,6 +5,7 @@ import { DatabaseModule } from './database/database.module';
 import { IamModule } from './iam/iam.module';
 import { UsersModule } from './users/users.module';
 import { CrawlersModule } from './crawlers/crawlers.module';
+import { TicketsModule } from './tickets/tickets.module';
 @Module({
   imports: [
     ServeStaticModule.forRoot({
@@ -14,6 +15,7 @@ import { CrawlersModule } from './crawlers/crawlers.module';
     UsersModule,
     IamModule,
     CrawlersModule,
+    TicketsModule,
   ],
   controllers: [],
   providers: [],

@@ -46,6 +46,7 @@
         "lodash": "^4.17.21",
         "moment": "^2.29.4",
         "moment-timezone": "^0.5.43",
+        "mysql": "^2.18.1",
         "nest-puppeteer": "^1.1.1",
         "nestjs-playwright": "^1.1.1",
         "node-fetch-cookies": "^2.1.0",
