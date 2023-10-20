@@ -41,7 +41,7 @@ export default function Venues() {
               </Tr>
             </Thead>
             <Tbody>
-              <For each={query.data}>
+              <For each={query.data.slice(0, 10)}>
                 {venue => (
                   <Tr
                     onClick={(data: MouseEvent) => {

@@ -18,9 +18,9 @@ interface LinkItemProps {
 }
 
 const linkItems: Array<LinkItemProps> = [
-  { name: "Add Events", path: "/events", icon: BiRegularAddToQueue },
+  //   { name: "Add Events", path: "/events", icon: BiRegularAddToQueue },
   { name: "Under 100", path: "/under-100", icon: FiTrendingUp },
-  { name: "Seats Info", path: "/performances", icon: AiOutlineInfoCircle },
+  //   { name: "Seats Info", path: "/performances", icon: AiOutlineInfoCircle },
   { name: "Custom Events", path: "/custom-events", icon: FiStar },
   { name: "Venues", path: "/venues", icon: FaSolidMasksTheater },
   { name: "Pricing", path: "/pricing", icon: AiOutlineDollarCircle },
