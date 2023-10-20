@@ -1,30 +1,28 @@
-import {
-    Box
-} from '@hope-ui/solid'
-import { Outlet, useNavigate } from '@solidjs/router'
-import { createEffect, lazy } from 'solid-js'
-import useAuth from '../hooks/useAuth'
+import { Box } from "@hope-ui/solid"
+import { Outlet, useNavigate } from "@solidjs/router"
+import { createEffect, lazy } from "solid-js"
 
 // Lazy components
-const HeaderNav = lazy(() => import('./HeaderNav'))
-const Sidebar = lazy(() => import('./Sidebar'))
+const HeaderNav = lazy(() => import("./HeaderNav"))
+const Sidebar = lazy(() => import("./Sidebar"))
 
 export default function Dashboard() {
-    const auth = useAuth()
-    const navigate = useNavigate()
+  const token = sessionStorage.getItem("token")
+  const navigate = useNavigate()
 
-    createEffect(async () => {
-        console.log(auth?.auth.isAuthenticated)
-        if (!auth?.auth.isAuthenticated) {
-            navigate("/login", { replace: true })
-        }
-    })
+  createEffect(() => {
+    if (!token) {
+      navigate("/login", { replace: true })
+    }
+  })
 
-    return (
-        <Box minH="$screenH">
-            <Sidebar />
-            <HeaderNav />
-            <Outlet />
-        </Box>
-    )
+  return (
+    <Box minH="$screenH">
+      <Sidebar />
+      <HeaderNav />
+      <Box ml="$60" p="$4">
+        <Outlet />
+      </Box>
+    </Box>
+  )
 }
