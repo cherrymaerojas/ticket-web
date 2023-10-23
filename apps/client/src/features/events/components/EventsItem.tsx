@@ -119,27 +119,14 @@ function fetchPerformanceWithSeats(performanceId: string) {
 
 function fetchPerformance(performanceId: string) {
   return axios
-    .get(`https://aiitchtix.net/api/events/performance/${performanceId}`, {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json, text/plain, */*",
-        Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-      },
-    })
+    .get(`http://srv430760.hstgr.cloud/api/events/performance/${performanceId}`)
     .then(res => res.data)
 }
 
 function fetchPerformanceSeats(performanceId: string) {
   return axios
     .get(
-      `https://aiitchtix.net/api/events/performance/${performanceId}/inventory`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json, text/plain, */*",
-          Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-        },
-      }
+      `http://srv430760.hstgr.cloud/api/events/performance/${performanceId}/inventory`
     )
     .then(res => res.data)
 }

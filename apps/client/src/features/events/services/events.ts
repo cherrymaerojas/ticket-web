@@ -2,52 +2,26 @@ import axios from "axios"
 
 export function fetchEventPerformances(eventId: string) {
   return axios
-    .get(`https://aiitchtix.net/api/events/${eventId}?`, {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json, text/plain, */*",
-        Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-      },
-    })
+    .get(`http://srv430760.hstgr.cloud/api/events/${eventId}`)
     .then(res => res.data)
 }
 
 export default function fetchEventsPerformance(performanceId: string) {
-  //api/venues
   return axios
-    .get(`https://aiitchtix.net/api/events/performance/${performanceId}`, {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json, text/plain, */*",
-        Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-      },
-    })
+    .get(`http://srv430760.hstgr.cloud/api/events/performance/${performanceId}`)
     .then(res => res.data)
 }
 
 export function fetchEventsSeats(performanceId: string) {
   return axios
     .get(
-      `https://aiitchtix.net/api/events/performance/${performanceId}/inventory`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json, text/plain, */*",
-          Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-        },
-      }
+      `http://srv430760.hstgr.cloud/api/events/performance/${performanceId}/inventory`
     )
     .then(res => res.data)
 }
 
 export function fetchEvents() {
   return axios
-    .get("https://aiitchtix.net/api/events", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json, text/plain, */*",
-        Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-      },
-    })
+    .get("http://srv430760.hstgr.cloud/api/events")
     .then(res => res.data)
 }

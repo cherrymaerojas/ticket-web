@@ -1,46 +1,23 @@
 import axios from "axios"
 
 export default function fetchVenues() {
-  //api/venues
   return axios
-    .get("https://aiitchtix.net/api/events/venues?sticky=true", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json, text/plain, */*",
-        Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-      },
-    })
+    .get("http://srv430760.hstgr.cloud/api/events/venues")
     .then(res => res.data)
 }
 
 export function fetchVenue(venueId: string) {
   return axios
-    .get(
-      `https://aiitchtix.net/api/events/venues/${venueId}?performances=1&skybox=1`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json, text/plain, */*",
-          Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-        },
-      }
-    )
+    .get(`http://srv430760.hstgr.cloud/api/events/venues/${venueId}`)
     .then(res => res.data)
 }
 
 export function fetchVenuesEventIds(venueId: string, eventsId: string) {
   return axios
     .get(
-      `https://aiitchtix.net/api/events/venues/inventory/${venueId}?eventsIds=${encodeURIComponent(
+      `http://srv430760.hstgr.cloud/api/events/venues/inventory/${venueId}?eventsIds=${encodeURIComponent(
         eventsId
-      )}`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json, text/plain, */*",
-          Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-        },
-      }
+      )}`
     )
     .then(res => res.data)
 }
