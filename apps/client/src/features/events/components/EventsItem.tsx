@@ -119,14 +119,22 @@ function fetchPerformanceWithSeats(performanceId: string) {
 
 function fetchPerformance(performanceId: string) {
   return axios
+<<<<<<< HEAD
     .get(`http://srv430760.hstgr.cloud/api/events/performance/${performanceId}`)
+=======
+    .get(`http://localhost:3000/api/events/performance/${performanceId}`)
+>>>>>>> refs/remotes/origin/development
     .then(res => res.data)
 }
 
 function fetchPerformanceSeats(performanceId: string) {
   return axios
     .get(
+<<<<<<< HEAD
       `http://srv430760.hstgr.cloud/api/events/performance/${performanceId}/inventory`
+=======
+      `http://localhost:3000/api/events/performance/${performanceId}/inventory`
+>>>>>>> refs/remotes/origin/development
     )
     .then(res => res.data)
 }
