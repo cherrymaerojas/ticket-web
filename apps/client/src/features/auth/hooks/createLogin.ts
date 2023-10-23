@@ -5,15 +5,7 @@ import useAuth from "../../../hooks/useAuth"
 import { createMutation } from "@tanstack/solid-query"
 
 function signIn(user: { username: string; password: string }) {
-  //api/auth/sign-in
-  if (user.username === "admin" && user.password === "admin") {
-    user.username = "david"
-    user.password = "dev"
-  } else {
-    user.username = "test"
-    user.password = "test"
-  }
-  return axios.post("https://aiitchtix.net/api/auth/login", user)
+  return axios.post("api/auth/sign-in", user)
 }
 
 type ErrorResponse = {

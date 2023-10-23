@@ -161,9 +161,9 @@ export default function Performances() {
                           mr="$2"
                           onClick={() => {
                             //(Post)
-                            console.log(
-                              `https://aiitchtix.net/api/events/archive/${event.id}`
-                            )
+                            // console.log(
+                            //   `https://aiitchtix.net/api/events/archive/${event.id}`
+                            // )
                             //   query.refetch()
                           }}
                         />
@@ -173,9 +173,9 @@ export default function Performances() {
                           icon={<AiOutlineDelete />}
                           onClick={() => {
                             //(Delete)
-                            console.log(
-                              `https://aiitchtix.net/api/events/${event.id}?delete_from_skybox=1`
-                            )
+                            // console.log(
+                            //   `https://aiitchtix.net/api/events/${event.id}?delete_from_skybox=1`
+                            // )
                             //   query.refetch()
                           }}
                         />
